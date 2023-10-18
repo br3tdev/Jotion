@@ -3,6 +3,7 @@ import { ChevronsLeft, MenuIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
+import UserItem from "./user-item";
 
 export interface INavigationProps {}
 
@@ -111,7 +112,7 @@ export default function Navigation(props: INavigationProps) {
           <ChevronsLeft className="h-6 w-6" />
         </div>
         <div>
-          <p>Action Items</p>
+          <UserItem />
         </div>
         <div className="mt4">
           <p>Documents</p>
