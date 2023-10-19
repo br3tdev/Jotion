@@ -92,7 +92,7 @@ export default function TrashBox(props: ITrashBoxProps) {
             <span className="truncate pl-2">{document.title}</span>
             <div className="flex items-center">
               <div
-                className="rounded-sm p-2 hover:bg-neutral-200"
+                className="rounded-sm p-2 hover:bg-neutral-200 dark:hover:bg-neutral-600"
                 onClick={(event) => onRestore(event, document._id)}
                 role="button"
               >
@@ -100,7 +100,7 @@ export default function TrashBox(props: ITrashBoxProps) {
               </div>
               <ConfirmModal onConfirm={() => onRemove(document._id)}>
                 <div
-                  className="rounded-sm p-2 hover:bg-neutral-200"
+                  className="rounded-sm p-2 hover:bg-neutral-200 dark:hover:bg-neutral-600"
                   role="button"
                 >
                   <Trash className="h-4 w-4 text-muted-foreground" />
