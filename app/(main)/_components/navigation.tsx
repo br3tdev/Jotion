@@ -8,7 +8,7 @@ import {
   Settings,
   Trash,
 } from "lucide-react";
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import UserItem from "./user-item";
@@ -32,6 +32,7 @@ export interface INavigationProps {}
 export default function Navigation(props: INavigationProps) {
   const search = useSearch();
   const settings = useSettings();
+  const router = useRouter();
   const params = useParams();
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -119,7 +120,9 @@ export default function Navigation(props: INavigationProps) {
   const create = useMutation(api.documents.create);
 
   const handleCreate = () => {
-    const promise = create({ title: "Untitled" });
+    const promise = create({ title: "Untitled" }).then((documentId) =>
+      router.push(`/documents/${documentId}`)
+    );
 
     toast.promise(promise, {
       loading: "Creating document...",
