@@ -10,6 +10,7 @@ import { useMutation } from "convex/react";
 import { useParams } from "next/navigation";
 import { Id } from "@/convex/_generated/dataModel";
 import { useEdgeStore } from "@/lib/edgestore";
+import { Skeleton } from "./ui/skeleton";
 
 export interface ICoverProps {
   url?: string;
@@ -61,3 +62,7 @@ export default function Cover({ url, preview }: ICoverProps) {
     </div>
   );
 }
+
+Cover.Skeleton = function CoverSkeleton() {
+  return <Skeleton className="h-[12vh] w-full" />;
+};
