@@ -156,6 +156,11 @@ export default function Navigation(props: INavigationProps) {
           <Item label="Search" icon={Search} isSearch onClick={search.onOpen} />
           <Item label="Settings" icon={Settings} onClick={settings.onOpen} />
           <Item onClick={handleCreate} label="New Page" icon={PlusCircle} />
+        </div>
+        <div className="mt4">
+          <DocumentList />
+          <Item onClick={handleCreate} label="New Document" icon={PlusIcon} />
+
           <Popover>
             <PopoverTrigger className="w-full mt-4">
               <Item label="Trash" icon={Trash} />
@@ -167,10 +172,6 @@ export default function Navigation(props: INavigationProps) {
               <TrashBox />
             </PopoverContent>
           </Popover>
-        </div>
-        <div className="mt4">
-          <DocumentList />
-          <Item onClick={handleCreate} label="New Document" icon={PlusIcon} />
         </div>
         <div
           onMouseDown={handleMouseDown}
